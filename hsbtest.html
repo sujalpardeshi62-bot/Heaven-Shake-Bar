@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEAVEN SHAKE BAR | Premium Cafe Ritual</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --gold: #d4a373;
+      --gold-dark: #9c6644;
+      --cream: #fdfaf7;
+      --white: #ffffff;
+      --dark: #2d241e;
+      --soft-dark: #4a3c31;
+      --glass: rgba(255, 255, 255, 0.45);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --shadow: 0 20px 40px -10px rgba(74, 60, 49, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* === UTILITIES === */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+    }
+    .btn {
+      cursor: pointer;
+      border: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      border-radius: 100px;
+      text-decoration: none;
+    }
+
+    /* === HEADER === */
+    header {
+      position: fixed;
+      top: 1.5rem;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.4s;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 100px;
+      box-shadow: var(--shadow);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 8px 15px rgba(212, 163, 115, 0.3);
+    }
+    .logo-text {
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      font-size: 0.85rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--soft-dark);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .reserve-btn {
+      background: var(--dark);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.7rem;
+    }
+    .reserve-btn:hover {
+      background: var(--gold);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #000;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(253, 250, 247, 0.2), var(--cream));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 5rem;
+    }
+    .hero-tag {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      font-size: 0.7rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--dark);
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+    }
+    .hero-p {
+      font-size: 1.25rem;
+      color: var(--soft-dark);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-inline: auto;
+      font-weight: 500;
+    }
+
+    /* === MENU SECTION (OLDER LAYOUT) === */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-tag {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      font-size: 0.65rem;
+    }
+    .section-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--dark);
+      margin-top: 0.5rem;
+    }
+
+    .menu-sticky-nav {
+      position: sticky;
+      top: 90px;
+      z-index: 20;
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      scrollbar-width: none;
+      backdrop-filter: blur(10px);
+      background: rgba(253, 250, 247, 0.7);
+      border-radius: 100px;
+      padding: 0.6rem 1rem;
+    }
+    .menu-sticky-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-btn {
+      padding: 0.8rem 1.8rem;
+      background: white;
+      border-radius: 100px;
+      font-weight: 800;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--soft-dark);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .cat-btn.active {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .cat-btn:hover {
+      border-color: var(--gold);
+    }
+
+    /* Category section */
+    .menu-category-section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 140px;
+    }
+
+    .menu-category-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--gold);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    }
+    .category-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .category-subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--soft-dark);
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    .dishes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .dish-card {
+      background: white;
+      padding: 1.25rem;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 2px solid transparent;
+    }
+    .dish-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+    .dish-card.active {
+      border-color: var(--gold);
+      background: #fffaf5;
+    }
+    .dish-info h4 {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+    .dish-info span {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .dish-price {
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+
+    .category-preview {
+      position: sticky;
+      top: 140px;
+      border-radius: 30px;
+      overflow: hidden;
+      height: 450px;
+      background: #eee;
+      box-shadow: var(--shadow);
+      border: 6px solid white;
+    }
+    .category-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s, transform 0.6s;
+    }
+    .category-preview .preview-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: white;
+    }
+    .preview-dish-name {
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+    .preview-tag {
+      color: var(--gold);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      margin-bottom: 0.3rem;
+    }
+
+    /* === BOOKING (unchanged) === */
+    .booking-section {
+      background: white;
+      padding: 8rem 0;
+      border-radius: 60px 60px 0 0;
+      margin-top: 5rem;
+    }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+    }
+    .input-group.full {
+      grid-column: span 2;
+    }
+    .input-group label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--soft-dark);
+    }
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      padding: 1rem 1.25rem;
+      border-radius: 15px;
+      border: 2px solid #f0f0f0;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .slot-grid {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .slot-btn {
+      padding: 0.75rem;
+      border: 2px solid #f0f0f0;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: white;
+      text-align: center;
+    }
+    .slot-btn.selected {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+    .slot-btn:hover:not(.selected) {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .submit-btn {
+      grid-column: span 2;
+      padding: 1.25rem;
+      background: var(--dark);
+      color: white;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-weight: 900;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      border-radius: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .submit-btn:hover {
+      background: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(212, 163, 115, 0.3);
+    }
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* === ANIMATIONS === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 992px) {
+      .menu-category-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-preview {
+        height: 350px;
+        position: relative;
+        top: auto;
+      }
+    }
+    @media (max-width: 600px) {
+      .dishes-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 4rem;
+      }
+      .booking-form {
+        grid-template-columns: 1fr;
+      }
+      .input-group.full,
+      .slot-grid,
+      .submit-btn {
+        grid-column: span 1;
+      }
+      .slot-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="main-header">
+    <nav class="nav-container glass">
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fas fa-cloud"></i></div>
+        <div class="logo-text">HEAVEN SHAKE BAR</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#booking">Book</a></li>
+      </ul>
+      <a href="#booking" class="btn reserve-btn">Reserve Now</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2023/08/29/178161-860747680_large.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <span class="hero-tag">A Cinematic Cafe Experience</span>
+      <h1 class="hero-title">SIP. CHILL.<br>REPEAT.</h1>
+      <p class="hero-p">Experience the ritual of luxury shakes and gourmet bites in a space designed for the soul.</p>
+      <div style="display: flex; gap: 1.5rem; justify-content: center;">
+        <a href="#menu" class="btn" style="background: var(--dark); color: white; padding: 1.25rem 2.5rem;">Explore Menu</a>
+        <a href="#booking" class="btn glass" style="padding: 1.25rem 2.5rem; color: var(--dark);">Book Table</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="menu" style="padding: 10rem 0 5rem;">
+    <div class="section-header reveal">
+      <span class="section-tag">Menu Collection</span>
+      <h2 class="section-title">Heavenly Selection</h2>
+    </div>
+
+    <!-- Sticky category tabs -->
+    <div class="menu-sticky-nav reveal" id="category-tabs">
+      <!-- injected by JS -->
+    </div>
+
+    <!-- Per-category sections -->
+    <div id="menu-sections-container">
+      <!-- injected by JS -->
+    </div>
+  </section>
+
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-grid">
+        <div class="reveal">
+          <span class="section-tag">Reservations</span>
+          <h2 class="section-title">Book a Table</h2>
+          <p style="margin-top: 1.5rem; color: var(--soft-dark); font-weight: 500;">Join us for an unforgettable ritual. We recommend booking at least 24 hours in advance for the best experience.</p>
+
+          <div style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="logo-icon" style="background: var(--cream); color: var(--gold);"><i class="fas fa-map-marker-alt"></i></div>
+              <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Near Neral Station, Plaza</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="logo-icon" style="background: var(--cream); color: var(--gold);"><i class="fas fa-phone-alt"></i></div>
+              <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">+91 98765 43210</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="booking-form reveal" id="reservation-form">
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="form-name" placeholder="John Doe" required>
+          </div>
+          <div class="input-group">
+            <label>Phone</label>
+            <input type="tel" id="form-phone" placeholder="+91..." required>
+          </div>
+          <div class="input-group">
+            <label>Date</label>
+            <input type="date" id="form-date" required>
+          </div>
+          <div class="input-group">
+            <label>Guests</label>
+            <select id="form-guests">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="7">7 Guests</option>
+              <option value="8">8+ Guests</option>
+            </select>
+          </div>
+          <div class="slot-grid" id="time-slots">
+            <!-- Slots injected here -->
+          </div>
+          <div class="input-group full">
+            <label>Special Requests</label>
+            <textarea id="form-requests" rows="3" placeholder="Allergies or preferences?"></textarea>
+          </div>
+          <button type="submit" class="btn submit-btn">Confirm Reservation</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: var(--dark); color: white; padding: 4rem 0; text-align: center;">
+    <div class="container">
+      <div class="logo" style="justify-content: center; margin-bottom: 2rem;">
+        <div class="logo-icon" style="background: rgba(255,255,255,0.1);"><i class="fas fa-cloud"></i></div>
+        <div class="logo-text" style="color: white;">HEAVEN SHAKE BAR</div>
+      </div>
+      <p style="opacity: 0.5; font-size: 0.7rem; letter-spacing: 0.3em; font-weight: 800; text-transform: uppercase;">© 2026 Premium Cafe Ritual. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ============ COMPLETE MENU DATA ============
+    const menuData = [
+      { id: 'fries', name: '🍟 Fries', icon: 'fa-fries', subtitle: 'Crispy golden fries with seasoning', items: [
+        { name: 'Plain Fries', price: '99', img: 'https://images.unsplash.com/photo-1630384062746-0930046b621e?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Masala Fries', price: '119', img: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Peri Peri Fries', price: '129', img: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Cheese Fries', price: '149', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Melting Cheese Fries', price: '169', img: 'https://images.unsplash.com/photo-1630384062746-0930046b621e?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'nachos', name: '🌮 Nachos', icon: 'fa-utensils', subtitle: 'Loaded tortilla chips', items: [
+        { name: 'Cheesy Nachos', price: '189', img: 'https://images.unsplash.com/photo-1600596542915-8e9cd12d8e3b?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Mexican Nachos', price: '209', img: 'https://images.unsplash.com/photo-1513456852971-c6b6b6b6b6b6?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Veg Loaded Nachos', price: '229', img: 'https://images.unsplash.com/photo-1600596542915-8e9cd12d8e3b?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chicken Loaded Nachos', price: '259', img: 'https://images.unsplash.com/photo-1600596542915-8e9cd12d8e3b?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'nonveg-starters', name: '🍗 Non-Veg Starters', icon: 'fa-drumstick-bite', subtitle: 'Crispy & flavorful', items: [
+        { name: 'Chicken Cheese Balls', price: '219', img: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chicken Nuggets', price: '199', img: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chicken Popcorn', price: '209', img: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chicken Wings', price: '239', img: 'https://images.unsplash.com/photo-1608039829572-785f5a79a4b5?auto=format&fit=crop&q=80&w=600' },
+        { name: 'BBQ Chicken Wings', price: '259', img: 'https://images.unsplash.com/photo-1527477396000-e27163b4be2e?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Peri Peri Wings', price: '269', img: 'https://images.unsplash.com/photo-1608039829572-785f5a79a4b5?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'veg-starters', name: '🧀 Veg Starters', icon: 'fa-seedling', subtitle: 'Delicious vegetarian bites', items: [
+        { name: 'Cheese Balls', price: '179', img: 'https://images.unsplash.com/photo-1618220171322-1e3f3c3c3c3c?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Cheese Corn Nuggets', price: '189', img: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'veg-momo', name: '🥟 Veg Momo', icon: 'fa-dumpling', subtitle: 'Steamed or fried delights', items: [
+        { name: 'Mix Veg Momo', price: '139', img: 'https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Schezwan Momo', price: '159', img: 'https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Cheese Corn Momo', price: '179', img: 'https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'nonveg-momo', name: '🍖 Non-Veg Momo', icon: 'fa-dumpling', subtitle: 'Chicken momos with spices', items: [
+        { name: 'Chicken Momo', price: '169', img: 'https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chicken Cheese Momo', price: '199', img: 'https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Schezwan Chicken Momo', price: '219', img: 'https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'garlic-bread', name: '🍞 Veg Garlic Bread', icon: 'fa-bread-slice', subtitle: 'Cheesy, toasted perfection', items: [
+        { name: 'Cheese Garlic Bread', price: '149', img: 'https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Corn Cheese Garlic Bread', price: '169', img: 'https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Veg Loaded Garlic Bread', price: '189', img: 'https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Paneer Loaded Garlic Bread', price: '209', img: 'https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'nonveg-garlic', name: '🍗 NV Garlic Bread', icon: 'fa-bread-slice', subtitle: 'Chicken loaded', items: [
+        { name: 'Chicken Loaded Garlic Bread', price: '229', img: 'https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'pizza', name: '🍕 Pizza', icon: 'fa-pizza-slice', subtitle: 'Handcrafted artisan pizzas', items: [
+        { name: 'Delight Pizza', price: '249', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Cheese Corn Pizza', price: '269', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Tandoor Pizza', price: '289', img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&q=80&w=600' },
+        { name: 'BBQ Pizza', price: '299', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Mexican Pizza', price: '309', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Makhni Pizza', price: '319', img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Exotic Pizza', price: '339', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600' },
+        { name: 'HSB Special Pizza', price: '359', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'burger', name: '🍔 Burger', icon: 'fa-burger', subtitle: 'Gourmet smashed burgers', items: [
+        { name: 'Classic Burger', price: '129', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Tandoori Burger', price: '149', img: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Mexican Burger', price: '159', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Double Patty Burger', price: '189', img: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Melting Cheese Burger', price: '199', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=600' },
+        { name: 'BBQ Burger', price: '209', img: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Desi Makhni', price: '219', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Paneer Burger', price: '179', img: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'sandwiches', name: '🥪 Sandwiches', icon: 'fa-sandwich', subtitle: 'Grilled to perfection', items: [
+        { name: 'Cheesy Corn', price: '139', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Classic Grilled', price: '119', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Tandoori Grilled', price: '149', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'BBQ Grilled', price: '159', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Makhni Tikka Grilled', price: '179', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Spicy Schezwan Grilled', price: '169', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Mexican Grilled', price: '189', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'HSBS Special Sandwich', price: '209', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chocolate Sandwich', price: '149', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'pasta', name: '🍝 Pasta', icon: 'fa-utensils', subtitle: 'Italian comfort', items: [
+        { name: 'White Sauce Pasta', price: '189', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Red Sauce Pasta', price: '189', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Mixed Sauce Pasta', price: '209', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Tandoori Pasta', price: '219', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Baked Pasta', price: '239', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'maggi', name: '🍜 Maggi', icon: 'fa-bowl-food', subtitle: 'The ultimate comfort food', items: [
+        { name: 'Classic Maggi', price: '89', img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Spicy Masala Maggi', price: '99', img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Cheesy Maggi', price: '119', img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Peri Peri Maggi', price: '129', img: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'coffee', name: '☕ Coffee', icon: 'fa-mug-saucer', subtitle: 'Cold brews & iced pours', items: [
+        { name: 'Classic Cold Coffee', price: '149', img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Cold Coffee with Crush', price: '169', img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Cold Coffee with Ice Cream', price: '189', img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Moca Coffee', price: '179', img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Moca Coffee with Crush', price: '199', img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'shakes', name: '🧋 Shakes', icon: 'fa-blender', subtitle: 'Thick & creamy', items: [
+        { name: 'Vanilla Shake', price: '139', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Strawberry Shake', price: '149', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Butterscotch Shake', price: '159', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Rose Shake', price: '149', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Mango Shake', price: '159', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chocolate Shake', price: '169', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Oreo Shake', price: '179', img: 'https://images.unsplash.com/photo-1541658016709-8273f8d7bc76?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Red Velvet Shake', price: '199', img: 'https://images.unsplash.com/photo-1619158403521-ed9795026d47?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Rasberry Shake', price: '179', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Melting Paan Shake', price: '189', img: 'https://images.unsplash.com/photo-1594911772125-07fc7a2d8d9f?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Watermelon Shake', price: '149', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Kesar Badam Shake', price: '209', img: 'https://images.unsplash.com/photo-1626078436898-93661be462ce?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'desserts', name: '🧁 Desserts', icon: 'fa-ice-cream', subtitle: 'Sweet finales', items: [
+        { name: "Heaven's Special Brownie", price: '189', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=600' },
+        { name: "Heaven's Special Ice Cream Sundae", price: '229', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Gadbadi Ice Cream', price: '199', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'ice-tea', name: '🍹 Ice Tea', icon: 'fa-cocktail', subtitle: 'Citrusy coolers', items: [
+        { name: 'Lemon Ice Tea', price: '119', img: 'https://images.unsplash.com/photo-1556679343-c121f5f5f5f5?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Peach Ice Tea', price: '129', img: 'https://images.unsplash.com/photo-1556679343-c121f5f5f5f5?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'freakshake', name: '🍨 Freakshake', icon: 'fa-crown', subtitle: 'Over-the-top indulgence', items: [
+        { name: 'Chocolate Love', price: '299', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=600' },
+        { name: 'KitKat Freakshake', price: '319', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Oreo Freakshake', price: '309', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Red Velvet Freakshake', price: '329', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Ferrero Rocher', price: '349', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=600' },
+        { name: "Heaven's Special", price: '369', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Nutella Freakshake', price: '339', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'mocktails', name: '🍸 Mocktails', icon: 'fa-martini-glass', subtitle: 'Refreshing & vibrant', items: [
+        { name: 'Blue Lagoon', price: '149', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Classic Mint', price: '139', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Green Apple', price: '149', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Watermelon Cooler', price: '159', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Rasberry', price: '159', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Chilly Guava', price: '169', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Fizzy Strawberry', price: '159', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Red Rose', price: '149', img: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=600' }
+      ]},
+      { id: 'waffle', name: '🧇 Waffle', icon: 'fa-waffle', subtitle: 'Crispy & loaded', items: [
+        { name: 'Chocolate Love', price: '219', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Hazelnut', price: '239', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Oreo Crunch', price: '229', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&q=80&w=600' },
+        { name: 'KitKat', price: '239', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&q=80&w=600' },
+        { name: 'Special Loaded', price: '269', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&q=80&w=600' }
+      ]}
+    ];
+
+    const slots = ['10:00 AM', '11:30 AM', '01:00 PM', '02:30 PM', '04:00 PM', '05:30 PM', '07:00 PM', '08:30 PM'];
+
+    let currentSlot = '';
+    // Per-category active dish index
+    const activeDishIndices = {};
+
+    // Initialize active dish index for each category to 0
+    menuData.forEach(cat => { activeDishIndices[cat.id] = 0; });
+
+    // DOM references
+    const catTabsContainer = document.getElementById('category-tabs');
+    const menuSectionsContainer = document.getElementById('menu-sections-container');
+    const slotGrid = document.getElementById('time-slots');
+
+    function init() {
+      renderCategoryTabs();
+      renderAllCategorySections();
+      renderSlots();
+      setupScrollSpy();
+      setupRevealObserver();
+
+      // Set minimum date to tomorrow
+      const dateInput = document.getElementById('form-date');
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      dateInput.min = tomorrow.toISOString().split('T')[0];
+      dateInput.value = tomorrow.toISOString().split('T')[0];
+    }
+
+    function renderCategoryTabs() {
+      catTabsContainer.innerHTML = menuData.map(cat => `
+        <button class="cat-btn" data-cat="${cat.id}" onclick="scrollToCategory('${cat.id}')">${cat.name}</button>
+      `).join('');
+    }
+
+    window.scrollToCategory = (catId) => {
+      document.getElementById(`cat-section-${catId}`).scrollIntoView({ behavior: 'smooth' });
+      // Update active tab manually
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.querySelector(`.cat-btn[data-cat="${catId}"]`);
+      if (btn) btn.classList.add('active');
+    };
+
+    function renderAllCategorySections() {
+      menuSectionsContainer.innerHTML = menuData.map(cat => {
+        const activeIdx = activeDishIndices[cat.id] || 0;
+        const activeDish = cat.items[activeIdx] || cat.items[0];
+        return `
+          <div class="menu-category-section reveal" id="cat-section-${cat.id}">
+            <div class="menu-category-grid">
+              <div>
+                <div class="category-header">
+                  <div class="category-icon"><i class="fas ${cat.icon}"></i></div>
+                  <div>
+                    <h3 class="category-title">${cat.name}</h3>
+                    <p class="category-subtitle">${cat.subtitle || 'Premium quality'}</p>
+                  </div>
+                </div>
+                <div class="dishes-grid">
+                  ${cat.items.map((item, idx) => `
+                    <div class="dish-card ${idx === activeIdx ? 'active' : ''}" 
+                         data-cat="${cat.id}" data-index="${idx}" data-img="${item.img}" data-name="${item.name}"
+                         onclick="updateCategoryPreview('${cat.id}', ${idx}, this)">
+                      <div class="dish-info">
+                        <h4>${item.name}</h4>
+                        <span>${cat.name}</span>
+                      </div>
+                      <div class="dish-price">₹${item.price}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="category-preview" id="preview-${cat.id}">
+                <img src="${activeDish.img}" alt="${activeDish.name}">
+                <div class="preview-overlay">
+                  <p class="preview-tag">Selected Dish</p>
+                  <h4 class="preview-dish-name">${activeDish.name}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    window.updateCategoryPreview = (catId, index, clickedEl) => {
+      // Update active index
+      activeDishIndices[catId] = index;
+      const cat = menuData.find(c => c.id === catId);
+      if (!cat) return;
+      const dish = cat.items[index];
+      if (!dish) return;
+
+      // Update active class on all dishes in this category
+      document.querySelectorAll(`.dish-card[data-cat="${catId}"]`).forEach(card => card.classList.remove('active'));
+      clickedEl.classList.add('active');
+
+      // Update preview image and name
+      const previewDiv = document.getElementById(`preview-${catId}`);
+      if (previewDiv) {
+        const img = previewDiv.querySelector('img');
+        const nameTag = previewDiv.querySelector('.preview-dish-name');
+        img.style.opacity = '0';
+        img.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+          img.src = dish.img;
+          img.style.opacity = '1';
+          img.style.transform = 'scale(1)';
+          nameTag.textContent = dish.name;
+        }, 200);
+      }
+    };
+
+    function renderSlots() {
+      slotGrid.innerHTML = slots.map(slot => `
+        <div class="slot-btn" onclick="selectSlot('${slot}', this)">${slot}</div>
+      `).join('');
+    }
+
+    window.selectSlot = (slot, el) => {
+      document.querySelectorAll('.slot-btn').forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+      currentSlot = slot;
+    };
+
+    // Scroll spy for category tabs
+    function setupScrollSpy() {
+      const sections = document.querySelectorAll('.menu-category-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id.replace('cat-section-', '');
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.querySelector(`.cat-btn[data-cat="${id}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+          }
+        });
+      }, { threshold: 0.4, rootMargin: '-60px 0px -20% 0px' });
+
+      sections.forEach(section => observer.observe(section));
+    }
+
+    function setupRevealObserver() {
+      const revealEls = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => observer.observe(el));
+    }
+
+    // Booking form
+    document.getElementById('reservation-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!currentSlot) {
+        alert("Please select a time slot first.");
+        return;
+      }
+      const btn = e.target.querySelector('.submit-btn');
+      const name = document.getElementById('form-name').value;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reserving...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        alert(`Reservation Confirmed for ${name}! See you at ${currentSlot}.`);
+        btn.innerHTML = 'Confirm Reservation';
+        btn.disabled = false;
+        e.target.reset();
+        document.querySelectorAll('.slot-btn').forEach(s => s.classList.remove('selected'));
+        currentSlot = '';
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('form-date').value = tomorrow.toISOString().split('T')[0];
+      }, 1500);
+    });
+
+    // Header shrink effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 50) {
+        header.style.top = '0';
+        header.querySelector('.nav-container').style.borderRadius = '0';
+      } else {
+        header.style.top = '1.5rem';
+        header.querySelector('.nav-container').style.borderRadius = '100px';
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>
+``
